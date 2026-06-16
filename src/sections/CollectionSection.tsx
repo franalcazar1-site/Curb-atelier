@@ -5,7 +5,8 @@ const products = [
   {
     id: 1,
     name: 'Snaffle Bit Chest Piece',
-    price: '€495',
+    price: '€420',
+    stripeLink: 'https://buy.stripe.com/00w4gz7ZR548fDY1xH2cg00',
     dimensions: '40cm × 35cm / Adjustable',
     tag: 'Cross-strap bridle leather with polished snaffle bit',
     category: 'HARNESSES',
@@ -19,6 +20,7 @@ const products = [
     id: 2,
     name: 'Ring Body Harness',
     price: '€480',
+    stripeLink: 'https://buy.stripe.com/4gMaEXgwngMQ63odgp2cg01',
     dimensions: 'Full torso / Adjustable',
     tag: 'Multi-ring construction with curb chain and bridle leather',
     category: 'HARNESSES',
@@ -32,6 +34,7 @@ const products = [
     id: 4,
     name: 'Ring Chain Harness',
     price: '€290',
+    stripeLink: 'https://buy.stripe.com/6oU5kDa7ZgMQfDYekt2cg02',
     dimensions: '42cm × 38cm / Adjustable',
     tag: 'Dual-ring construction with draped chain and bridle straps',
     category: 'HARNESSES',
@@ -45,6 +48,7 @@ const products = [
     id: 5,
     name: 'Pelham Bit Harness',
     price: '€400',
+    stripeLink: 'https://buy.stripe.com/28EaEXa7ZfIM2Rcdgp2cg03',
     dimensions: '40cm × 35cm / Adjustable',
     tag: 'Horizontal bridle strap with Pelham bit and draped chain',
     category: 'HARNESSES',
@@ -57,7 +61,8 @@ const products = [
   {
     id: 6,
     name: 'Snaffle Bit Chest Piece — Studio',
-    price: '€480',
+    price: '€390',
+    stripeLink: 'https://buy.stripe.com/6oUeVdcg7cwA2Rc4JT2cg04',
     dimensions: '40cm × 35cm / Adjustable',
     tag: 'Editorial: Snaffle bit with latex opera gloves, studio I',
     category: 'HARNESSES',
@@ -70,7 +75,8 @@ const products = [
   {
     id: 7,
     name: 'Pelham Bit Harness — Studio',
-    price: '€520',
+    price: '€420',
+    stripeLink: 'https://buy.stripe.com/28EdR95RJ8gk63o0tD2cg05',
     dimensions: '42cm × 38cm / Adjustable',
     tag: 'Editorial: Pelham bit with bunny mask, sheer mesh, studio II',
     category: 'HARNESSES',
@@ -83,7 +89,8 @@ const products = [
   {
     id: 8,
     name: 'Snaffle Bit Chest Piece — Studio',
-    price: '€480',
+    price: '€425',
+    stripeLink: 'https://buy.stripe.com/cNi14na7ZeEI9fA0tD2cg06',
     dimensions: '40cm × 35cm / Adjustable',
     tag: 'Editorial: Snaffle bit with PVC trousers, studio III',
     category: 'HARNESSES',
@@ -174,6 +181,13 @@ export default function CollectionSection() {
               </div>
               <p className="font-mono text-[10px] md:text-[11px] text-steel mt-1.5 uppercase tracking-[0.05em]">{product.dimensions}</p>
               <p className="font-body text-[13px] text-steel mt-1">{product.tag}</p>
+
+              {product.stripeLink && !product.sold && (
+                <a href={product.stripeLink} target="_blank" rel="noopener noreferrer"
+                  className="mt-3 inline-block bg-blood-red text-charcoal px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.08em] border-2 border-charcoal hover:bg-charcoal hover:text-bone transition-all duration-200">
+                  BUY NOW →
+                </a>
+              )}
 
               <button onClick={() => setExpandedId(expandedId === product.id ? null : product.id)}
                 className="mt-3 font-mono text-[10px] uppercase tracking-[0.1em] text-charcoal border-b border-charcoal/30 hover:border-blood-red hover:text-blood-red transition-all duration-200">
